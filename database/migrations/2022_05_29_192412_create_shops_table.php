@@ -17,7 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('shop_name');
             $table->string('shop_address')->nullable();
-            $table->string('map_position');
+            $table->string('map_position_x');
+            $table->string('map_position_y');
             $table->foreignId('user_id')->constrained();
             $table->foreignId('map_id')->constrained();
             $table->timestamps();

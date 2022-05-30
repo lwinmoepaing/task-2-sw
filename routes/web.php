@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    $isAuth = Auth::check();
+    if ($isAuth) {
+      return  redirect('home');
+    }
     return view('welcome');
 });
 
@@ -21,3 +26,5 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('/map-create', [App\Http\Controllers\MapController::class, 'createMap'])->name('map.create');
+Route::post('/map-update', [App\Http\Controllers\MapController::class, 'updateMap'])->name('map.update');
+Route::post('/shpo-create', [App\Http\Controllers\ShopController::class, 'createNewShop'])->name('shop.create');
