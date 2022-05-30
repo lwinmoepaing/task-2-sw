@@ -4,23 +4,28 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-3 mb-2">
-            <div class="list-group">
-                <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
-                  Home
-                </a>
-                <a href="#" class="list-group-item list-group-item-action">Shop</a>
-                <a href="#" class="list-group-item list-group-item-action">Map</a>
-            </div>
+           @includeIf('common.side-nav')
         </div>
         <div class="col-md-9 mb-2">
             @includeIf('common.messages')
             @includeIf('common.shop-new-form')
-
+            @includeIf('common.shop-edit-form')
 
             @if(isset($map))
                 <div class="">
                     <div class="map-container" id="mapContainer">
                         <div class="cursor cursor-pointer" id="mapCursor"></div>
+
+                        @foreach ($shop_list as $shop)
+                            <div class="marker-wrapper shop-edited-wrapper"  style="left: {{$shop->map_position_x}}px; top: {{$shop->map_position_y}}px;" data-value="{{json_encode($shop)}}">
+                                <div class="shop-name-icon-container">
+                                    <img src="image/helper/map.png" class="marker"/>
+                                </div>
+                                <div class="shop-name-container bg-white">
+                                    {{$shop->shop_name}}
+                                </div>
+                            </div>
+                        @endforeach
                         <img src="{{$map->url}}" class="cursor-pointer" id="mapImage" />
                     </div>
                 </div>

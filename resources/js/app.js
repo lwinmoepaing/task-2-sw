@@ -7,7 +7,7 @@
 require("./bootstrap");
 
 window.Vue = require("vue").default;
-window.$ = require('jquery');
+
 
 /**
  * The following block of code may be used to automatically register your
@@ -35,5 +35,7 @@ const app = new Vue({
     el: "#app",
 });
 
+window.$ = require("jquery");
 const myJs = require("./src/my");
 myJs();
+require("daterangepicker");

@@ -39,4 +39,35 @@
             opacity: 1;
         }
     }
+
+    .marker-wrapper {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+
+        .shop-name-icon-container {
+            img {
+                width: 30px;
+                height: 30px;
+            }
+        }
+        .shop-name-container {
+            min-width: 100px;
+            max-width: 100px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            text-align: center;
+            position: relative;
+        }
+    }
+}
+
+.marker {
+    width: 30px;
+    height: 30px;
 }
